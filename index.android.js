@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './containers/App';
+import App from './src/containers/App';
 
 AppRegistry.registerComponent('AutobusNative', () => App);
