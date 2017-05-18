@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import devToolsEnhancer from 'remote-redux-devtools';
 import {
   AppRegistry,
   StyleSheet,
@@ -21,7 +22,7 @@ import {
   Router,
   Scene,
 } from 'react-native-router-flux';
-import RouteList from './../../containers/RouteList';
+import RouteList from './../../containers/RoutesList';
 import reducers from './../../reducers';
 
 const store = createStore(reducers, devToolsEnhancer(), applyMiddleware(thunk));
