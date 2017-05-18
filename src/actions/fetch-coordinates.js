@@ -1,6 +1,6 @@
 import { FETCH_COORDINATES } from '../constants';
 
-export const fetchGeoCoordinates = () => {
+const fetchCoordinates = () => {
   return dispatch => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -25,3 +25,5 @@ export const fetchGeoCoordinates = () => {
     );
   }
 }
+
+export default fetchCoordinates;
