@@ -12,36 +12,10 @@ class RoutesList extends Component {
   componentWillMount() {
     this.props.fetchCoordinates();
   }
-  
-  printCoords() {
-    if (!this.props.currentPosition) {
-      return (
-        <Text>LOADING...</Text>
-      )
-    } else {
-      return (
-        <View>
-          <Text>{this.props.currentPosition.coordinates.latitude}</Text>
-          <Text>{this.props.currentPosition.coordinates.longitude}</Text>
-        </View>
-      )
-    };
-  }
 
   render() {
     return (
       <View>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        <Text>This is where the list of routes will render.</Text>
-        {this.printCoords()}
         {this.props.fetchStops()}
       </View>
     )
