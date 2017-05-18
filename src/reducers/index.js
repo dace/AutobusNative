@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   currentPosition: coordinates,
   // nearbyRoutes,
   // selectedRoute,
-  nearbyStops,
+  stops: nearbyStops,
   // selectedStop,
 });
 
