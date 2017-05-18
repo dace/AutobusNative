@@ -1,8 +1,8 @@
-import fetchCoordinates from '../actions/fetch-coordinates';
+import { FETCH_COORDINATES } from '../constants';
 
 const coordinates = (state = null, action) => {
   switch(action.type) {
-    case 'FETCH_COORDINATES':
+    case FETCH_COORDINATES:
       return {
         ...state,
         coordinates: action.payload,
