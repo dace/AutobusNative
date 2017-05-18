@@ -1,6 +1,8 @@
-const nearbyStops = (state = [], action) => {
-  switch(action.type) {
-    case 'FETCH_STOPS':
+import { FETCH_STOPS } from './../constants';
+
+const nearbyStops = (state = null, action) => {
+  switch (action.type) {
+    case FETCH_STOPS:
       return {
         ...state,
         nearbyStops: action.payload,
