@@ -1,6 +1,6 @@
-import { FETCH_STOPS } from '../constants';
 import { nearbyStopsUrl } from '../utils/api/endpoints';
 import { normalizeStopData } from '../utils/api/normalize-data';
+import { FETCH_STOPS } from '../constants';
 
 const fetchNearbyStops = () => {
   return dispatch => {
