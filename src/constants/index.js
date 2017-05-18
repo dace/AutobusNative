@@ -1,0 +1,7 @@
+export const FETCH_COORDINATES = 'FETCH_COORDINATES';
+
+export const FETCH_STOP_LIST = 'FETCH_STOP_LIST';
+export const FETCH_BUS_LIST = 'FETCH_BUS_LIST';
+
+export const SELECT_STOP = 'SELECT_STOP';
+export const SELECT_BUS = 'SELECT_BUS';
