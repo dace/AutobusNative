@@ -6,10 +6,10 @@ import nearbyStops from './nearby-stops';
 import selectedStop from './selected-stop';
 
 const rootReducer = combineReducers({
-  coordinates,
+  currentPosition: coordinates,
   // nearbyRoutes,
   // selectedRoute,
-  // nearbyStops,
+  nearbyStops,
   // selectedStop,
 });
 
