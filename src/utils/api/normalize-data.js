@@ -1,12 +1,13 @@
 export const normalizeStopData = stopList => {
   const normalizedStops = stopList.map(stop => {
-    
     let newStopsObj = {
       stopCode: stop.code,
       crossStreets: stop.name,
+      latitude: stop.lat,
+      longitude: stop.lon,
+      direction: stop.direction,
       routes: [],
     };
-
     stop.routes.forEach(route => {
       newStopsObj.routes.push({
         color: route.color,
@@ -19,6 +20,5 @@ export const normalizeStopData = stopList => {
     });
     return newStopsObj;
   });
- 
   return normalizedStops;
 };
