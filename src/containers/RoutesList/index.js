@@ -13,20 +13,38 @@ class RoutesList extends Component {
     this.props.fetchCoordinates();
   }
 
+  renderStops() {
+    if (!this.props.stopsList) {
+        return (
+        <View>
+          <Text>'LOADING...'</Text>
+        </View>
+      )
+    } else {
+    
+      const allStops = this.props.stopsList.nearbyStops.map(stop => {
+        return (
+          <Text key={stop.stopCode}>{stop.crossStreets}</Text>
+        )
+      })
+      return allStops;
+    }
+  }
   render() {
+  
     return (
       <View>
         {this.props.fetchStops()}
+        {this.renderStops()}
       </View>
     )
   }
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     currentPosition: state.currentPosition,
-    nearbyStops: state.nearbyStops,
+    stopsList: state.stops,
   }
 }
 
