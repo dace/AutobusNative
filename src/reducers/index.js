@@ -1,16 +1,14 @@
 import { combineReducers } from 'redux';
 import coordinates from './coordinates';
-import nearbyRoutes from './nearby-routes';
-import selectedRoute from './selected-route';
-import nearbyStops from './nearby-stops';
-import selectedStop from './selected-stop';
+import nearbyStops from './fetch-stops';
+import busList from './fetch-buses';
+import selectedStop from './select-stop';
 
 const rootReducer = combineReducers({
   currentPosition: coordinates,
-  // nearbyRoutes,
-  // selectedRoute,
   stops: nearbyStops,
-  // selectedStop,
+  selectedStop,
+  busesAtStop: busList,
 });
 
 export default rootReducer;
