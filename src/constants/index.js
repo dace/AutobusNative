@@ -7,6 +7,3 @@ export const SELECT_STOP = 'SELECT_STOP';
 
 //  Buses
 export const FETCH_BUSES = 'FETCH_BUSES';
-
-// Routes
-export const SELECT_ROUTE = 'SELECT_ROUTE';
