@@ -22,3 +22,17 @@ export const normalizeStopData = stopList => {
   });
   return normalizedStops;
 };
+
+export const normalizeBusesData = buses => {
+  const normalizedBusList = buses.Siri.ServiceDelivery.StopMonitoringDelivery[0].MonitoredStopVisit.map(bus => {
+    const newBusObj = {
+      destination: bus.MonitoredVehicleJourney.DestinationName,
+      distanceAway: bus.MonitoredVehicleJourney.MonitoredCall.Extensions.Distances.PresentableDistance,
+      stopsAway: bus.MonitoredVehicleJourney.MonitoredCall.Extensions
+      .Distances.StopsFromCall,
+      busRoute: bus.MonitoredVehicleJourney.PublishedLineName,
+    }
+    return newBusObj;
+  });
+  return normalizedBusList;
+};
