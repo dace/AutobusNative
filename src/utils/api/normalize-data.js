@@ -1,8 +1,13 @@
+const normalizeStopName = name => {
+  return name.replace('BL ', 'BLVD ')
+    .replace('AV', 'AVE').replace('BLV ', 'BLVD ')
+}
+
 export const normalizeStopData = stopList => {
   const normalizedStops = stopList.map(stop => {
     let newStopsObj = {
       stopCode: stop.code,
-      crossStreets: stop.name,
+      crossStreets: normalizeStopName(stop.name),
       latitude: stop.lat,
       longitude: stop.lon,
       direction: stop.direction,
@@ -30,7 +35,11 @@ export const normalizeBusesData = buses => {
       distanceAway: bus.MonitoredVehicleJourney.MonitoredCall.Extensions.Distances.PresentableDistance,
       stopsAway: bus.MonitoredVehicleJourney.MonitoredCall.Extensions
       .Distances.StopsFromCall,
-      busRoute: bus.MonitoredVehicleJourney.PublishedLineName,
+      route: bus.MonitoredVehicleJourney.PublishedLineName,
+      currentPosition: {
+        latitude: bus.MonitoredVehicleJourney.VehicleLocation.Latitude,
+        longitude: bus.MonitoredVehicleJourney.VehicleLocation.Longitude,
+      }
     }
     return newBusObj;
   });
