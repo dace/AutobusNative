@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Actions } from 'react-native-router-flux';
 import fetchCoordinates from './../../actions/fetch-coordinates';
 import fetchStops from './../../actions/fetch-stops';
 import selectStop from './../../actions/select-stop';
@@ -21,6 +22,7 @@ class Stops extends Component {
   handleSelectStop(code) {
     this.props.selectStop(code);
     this.props.fetchBuses(code)
+    Actions.buses();
   }
 
   renderStops() {
