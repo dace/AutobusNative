@@ -23,7 +23,7 @@ import {
   Scene,
 } from 'react-native-router-flux';
 import Stops from './../../containers/Stops';
-import Buses from './../../components/Buses';
+import Buses from './../../containers/Buses';
 import reducers from './../../reducers';
 
 const store = createStore(reducers, devToolsEnhancer(), applyMiddleware(thunk));

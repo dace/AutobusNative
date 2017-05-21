@@ -22,7 +22,7 @@ class Buses extends Component {
         this.props.buses.busList.map(bus => {
           return (
             <View key={bus.stopsAway} style={styles.listWrapper}>
-              <Text>Route: {bus.busRoute}</Text>
+              <Text>Route: {bus.route}</Text>
               <Text>Destination: {bus.destination}</Text>
               <Text>Distance Away: {bus.distanceAway}</Text>            
             </View>
@@ -51,6 +51,7 @@ const mapStateToProps = state => {
 const styles = StyleSheet.create({
   listWrapper: {
     marginTop: 100,
+    marginBottom: 300,    
     padding: 20,
   },
 });
