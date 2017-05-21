@@ -23,6 +23,7 @@ import {
   Scene,
 } from 'react-native-router-flux';
 import Stops from './../../containers/Stops';
+import Buses from './../../components/Buses';
 import reducers from './../../reducers';
 
 const store = createStore(reducers, devToolsEnhancer(), applyMiddleware(thunk));
@@ -33,7 +34,8 @@ export default class App extends Component {
       <Provider store={store}>
         <Router>
           <Scene key="root">
-            <Scene key="routeList" component={RouteList} title="Routes" initial={true} />
+            <Scene key="stops" component={Stops} title="Routes" initial={true} />
+            <Scene key="buses" component={Buses} title="Buses" />
           </Scene>
         </Router>
       </Provider>
