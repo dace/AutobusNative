@@ -7,3 +7,4 @@ export const SELECT_STOP = 'SELECT_STOP';
 
 //  Buses
 export const FETCH_BUSES = 'FETCH_BUSES';
+export const EST_TIME_AWAY = 'EST_TIME_AWAY';
