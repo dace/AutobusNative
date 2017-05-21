@@ -25,6 +25,26 @@ class Stops extends Component {
     Actions.buses();
   }
 
+  renderRoutes(stop) {
+    const routesAtStop = stop.routes.map(route => {
+      const routeStyles = {
+        borderStyle: 'solid',
+        borderLeftWidth: 8,
+        borderColor: `#${route.color}`,
+        paddingLeft: 10,
+        marginTop: 4,
+      }
+      return (
+        <View style={routeStyles}>
+          <Text key={route.busName}>
+            {route.busName}
+          </Text>
+        </View>
+      )
+    });
+    return routesAtStop;
+  }
+
   renderStops() {
     if (!this.props.stopsList) {
         return (
@@ -36,15 +56,19 @@ class Stops extends Component {
       const allStops = this.props.stopsList.nearbyStops.map(stop => {
         return (
           <TouchableHighlight key={stop.stopCode} onPress={() => this.handleSelectStop(stop.stopCode)}>
-            <Text style={styles.listItem}>
-              {stop.crossStreets} - {stop.direction}
-            </Text>
+            <View style={styles.listItem}>
+              <Text style={styles.stopName}>
+                {stop.crossStreets} - {stop.direction}
+              </Text>
+              {this.renderRoutes(stop)}
+            </View>
           </TouchableHighlight>
         )
       })
       return allStops;
     }
   }
+
   render() {
     return (
       <ScrollView style={styles.listWrapper}>
@@ -73,10 +97,17 @@ const mapDispatchToProps = dispatch => {
 
 const styles = StyleSheet.create({
   listItem: {
-    padding: 30,
+    padding: 50,
+    borderColor: '#000000',
+    borderBottomWidth: 1,
+    borderStyle: 'solid',
   },
   listWrapper: {
-    marginTop: 60,
+    marginTop: 60,  
+  },
+  stopName: {
+    fontSize: 25,
+    marginBottom: 20,
   }
 });
 
