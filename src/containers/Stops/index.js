@@ -32,12 +32,18 @@ class Stops extends Component {
         borderLeftWidth: 8,
         borderColor: `#${route.color}`,
         paddingLeft: 10,
-        marginTop: 4,
+        marginTop: 20,
       }
       return (
-        <View style={routeStyles}>
-          <Text key={route.busName}>
+        <View style={routeStyles} key={route.busName}>
+          <Text >
             {route.busName}
+          </Text>
+          <Text>
+            Start & End: {route.longName}
+          </Text>
+          <Text>
+            Route: {route.description}
           </Text>
         </View>
       )
