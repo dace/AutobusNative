@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Actions } from 'react-native-router-flux';
+import PropTypes from 'prop-types';
 import StopNameHeader from './../../components/StopNameHeader';
 import StopCard from './../../components/StopCard';
 import StopCardList from './../../components/StopCardList';
@@ -73,6 +74,15 @@ const styles = StyleSheet.create({
     padding: 15,
   },
 });
+
+Stops.propTypes = {
+  stopsList: PropTypes.array,
+  currentPosition: PropTypes.object,
+  fetchCoordinates: PropTypes.func,
+  fetchStops: PropTypes.func,
+  selectStop: PropTypes.func,
+  fetchBuses: PropTypes.func,  
+};
 
 export default connect(
   mapStateToProps,
