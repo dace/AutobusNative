@@ -33,7 +33,6 @@ class Buses extends Component {
   }
 
   render() {
-  console.log(this.props);
     return (
       <ScrollView style={styles.listWrapper}>
         {this.renderBusDetails()}
