@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   ScrollView,
   Text,
@@ -54,5 +55,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
+
+Buses.propTypes = {
+  buses: PropTypes.object,
+};
 
 export default connect(mapStateToProps)(Buses);
