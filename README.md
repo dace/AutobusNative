@@ -1,6 +1,7 @@
-# 🚌 Autobus
-
+# Autobus
 Live updates for NYC's MTA buses
+
+![autobus screens](./docs/assets/images/screens_01.jpg)
 
 ## APIs
 
