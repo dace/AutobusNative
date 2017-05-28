@@ -29,23 +29,26 @@ export const normalizeStopData = stopList => {
 };
 
 export const normalizeRoutesAndBuses = arrayOfBuses => {
-  let unifiedRoutesSingleStop = [];
-  let routes = {};
-
+  const unifiedRoutesSingleStop = [];
+  const routes = {};
   arrayOfBuses.forEach(bus => {
     if (routes[bus.route]) {         
-      routes[bus.route].nextBuses.push(bus);
-    } else {
-      routes[bus.route] = {
-        destination: '',
-        nextBuses: [],
-      };
-      routes[bus.route].destination = bus.destination;
       routes[bus.route].nextBuses.push({
         stopsAway: bus.stopsAway,
         distanceAway: bus.distanceAway,
         currentPosition: bus.currentPosition,
       });
+    } else {
+      routes[bus.route] = {
+        destination: bus.destination,
+        nextBuses: [],
+      };
+      routes[bus.route].nextBuses.push({
+        stopsAway: bus.stopsAway,
+        distanceAway: bus.distanceAway,
+        currentPosition: bus.currentPosition,
+      });
+      unifiedRoutesSingleStop.push(routes)
     }
   });
   return unifiedRoutesSingleStop;
