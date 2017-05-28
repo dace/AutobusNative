@@ -7,6 +7,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import Header from './../../components/Header';
 
 class Buses extends Component {
   renderBusDetails() {
@@ -19,23 +20,32 @@ class Buses extends Component {
         <Text>Sorry, but there are no buses currently on this route</Text>
       )
     } else {
-      return (
-        this.props.buses.busList.map(bus => {
-          return (
-            <View key={bus.stopsAway} style={styles.listWrapper}>
-              <Text>Route: {bus.route}</Text>
-              <Text>Destination: {bus.destination}</Text>
-              <Text>Distance Away: {bus.distanceAway}</Text>            
-            </View>
-          )
-        })
-      )
+      
+
+      // return Object.keys(routes).map(e => {
+      //   const routeName = routes[e];
+      //   const routeDestination = routes[e].destination;
+      //   const incomingBuses = routes[e].nextBuses.map(bus => {
+      //     return (
+      //       <View>
+      //         <Text>Distance Away: {bus.distanceAway}</Text>
+      //         <Text>Stops Away: {bus.stopsAway}</Text> 
+      //       </View>
+      //     )
+      //   });
+        return (
+          <View>
+            <Text>hi</Text>
+          </View>
+        )
+      // });
     }
   }
 
   render() {
     return (
       <ScrollView style={styles.listWrapper}>
+        <Header title="Next Buses" />
         {this.renderBusDetails()}
       </ScrollView>
     )
@@ -50,9 +60,7 @@ const mapStateToProps = state => {
 
 const styles = StyleSheet.create({
   listWrapper: {
-    marginTop: 100,
-    marginBottom: 300,    
-    padding: 20,
+    marginTop: 60,
   },
 });
 
