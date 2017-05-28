@@ -28,8 +28,31 @@ export const normalizeStopData = stopList => {
   return normalizedStops;
 };
 
+export const normalizeRoutesAndBuses = arrayOfBuses => {
+  let unifiedRoutesSingleStop = [];
+  let routes = {};
+
+  arrayOfBuses.forEach(bus => {
+    if (routes[bus.route]) {         
+      routes[bus.route].nextBuses.push(bus);
+    } else {
+      routes[bus.route] = {
+        destination: '',
+        nextBuses: [],
+      };
+      routes[bus.route].destination = bus.destination;
+      routes[bus.route].nextBuses.push({
+        stopsAway: bus.stopsAway,
+        distanceAway: bus.distanceAway,
+        currentPosition: bus.currentPosition,
+      });
+    }
+  });
+  return unifiedRoutesSingleStop;
+};
+
 export const normalizeBusesData = buses => {
-  const normalizedBusList = buses.Siri.ServiceDelivery.StopMonitoringDelivery[0].MonitoredStopVisit.map(bus => {
+  const busList = buses.Siri.ServiceDelivery.StopMonitoringDelivery[0].MonitoredStopVisit.map(bus => {
     const newBusObj = {
       destination: bus.MonitoredVehicleJourney.DestinationName,
       distanceAway: bus.MonitoredVehicleJourney.MonitoredCall.Extensions.Distances.PresentableDistance,
@@ -43,5 +66,5 @@ export const normalizeBusesData = buses => {
     }
     return newBusObj;
   });
-  return normalizedBusList;
+  return normalizeRoutesAndBuses(busList);
 };
