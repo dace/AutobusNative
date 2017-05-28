@@ -5,10 +5,10 @@ import busList from './fetch-buses';
 import selectedStop from './select-stop';
 
 const rootReducer = combineReducers({
-  currentPosition: coordinates,
-  stops: nearbyStops,
-  selectedStop,
   busesAtStop: busList,
+  currentPosition: coordinates,
+  selectedStop,
+  stops: nearbyStops,
 });
 
 export default rootReducer;
