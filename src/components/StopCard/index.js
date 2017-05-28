@@ -11,7 +11,7 @@ const StopCard = ({ details }) => {
 
   return (
     <View style={wrapper}>
-      <StopNameHeader name={details.crossStreets} />
+      <StopNameHeader name={details.crossStreets} details={details} />
       <StopRoutesList routes={details.routes} />
     </View>
   )
