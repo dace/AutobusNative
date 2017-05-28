@@ -20,8 +20,6 @@ class Buses extends Component {
         <Text>Sorry, but there are no buses currently on this route</Text>
       )
     } else {
-      
-
       // return Object.keys(routes).map(e => {
       //   const routeName = routes[e];
       //   const routeDestination = routes[e].destination;
