@@ -3,8 +3,9 @@ import {
   Text,
   View,
 } from 'react-native';
+import StopIconRow from './../../containers/StopIconRow';
 
-const StopNameHeader = ({ name }) => {
+const StopNameHeader = ({ details, name }) => {
   const wrapper = {
     padding: 30,
     marginBottom: 15,
@@ -19,6 +20,7 @@ const StopNameHeader = ({ name }) => {
   return (
     <View style={wrapper}>
       <Text style={stopName}>{name}</Text>
+      <StopIconRow stopDetails={details} />
     </View>
   )
 };
