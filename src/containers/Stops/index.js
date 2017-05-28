@@ -25,7 +25,6 @@ class Stops extends Component {
   }
 
   renderStops() {
-    console.log(this.props);
     if (this.props.stopsList) {
       return <StopCardList stops={this.props.stopsList} />
     } else {
