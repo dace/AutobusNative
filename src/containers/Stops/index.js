@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Actions } from 'react-native-router-flux';
 import PropTypes from 'prop-types';
+import Header from './../../components/Header';
 import StopNameHeader from './../../components/StopNameHeader';
 import StopCard from './../../components/StopCard';
 import StopCardList from './../../components/StopCardList';
@@ -23,13 +24,8 @@ class Stops extends Component {
     this.props.fetchCoordinates();
   }
 
-  // handleSelectStop(code) {
-  //   this.props.selectStop(code);
-  //   this.props.fetchBuses(code)
-  //   Actions.buses();
-  // }
-
   renderStops() {
+    console.log(this.props);
     if (this.props.stopsList) {
       return <StopCardList stops={this.props.stopsList} />
     } else {
@@ -44,8 +40,11 @@ class Stops extends Component {
   render() {
     return (
       <ScrollView style={styles.wrapper}>
-        {this.props.fetchStops()}
-        {this.renderStops()}
+        <Header title='Stops' img='http://' />
+        <View style={styles.contentWrapper}>
+          {this.props.fetchStops()}
+          {this.renderStops()}
+        </View>
       </ScrollView>
     )
   }
@@ -62,8 +61,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchCoordinates: bindActionCreators(fetchCoordinates, dispatch),
     fetchStops: bindActionCreators(fetchStops, dispatch),
-    selectStop: bindActionCreators(selectStop, dispatch),
-    fetchBuses: bindActionCreators(fetchBuses, dispatch),
+    
   }
 }
 
@@ -71,12 +69,14 @@ const styles = StyleSheet.create({
   wrapper: {
     marginTop: 60,
     backgroundColor: '#F6F9FA',
-    padding: 15,
   },
+  contentWrapper: {
+    padding: 15,
+  }
 });
 
 Stops.propTypes = {
-  stopsList: PropTypes.array,
+  stopsList: PropTypes.object,
   currentPosition: PropTypes.object,
   fetchCoordinates: PropTypes.func,
   fetchStops: PropTypes.func,
