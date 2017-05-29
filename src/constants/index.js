@@ -7,3 +7,4 @@ export const FETCH_STOPS = 'FETCH_STOPS';
 //  Buses
 export const FETCH_BUSES = 'FETCH_BUSES';
 export const EST_TIME_AWAY = 'EST_TIME_AWAY';
+export const SET_BUS_STYLES = 'SET_ROUTE_STYLES';
