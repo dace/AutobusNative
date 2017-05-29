@@ -16,11 +16,13 @@ class BusesHeader extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <TouchableOpacity onPress={() => this.navigateBack()}>
-          <Image source={require(`./../../assets/icons/arrowwhite.png`)} style={{ width: 50, height: 45 }} />
+        <TouchableOpacity onPress={() => this.navigateBack()} style={{ left: 30, position: 'absolute' }}>
+          <Image source={require(`./../../assets/icons/arrowwhite.png`)} style={{ width: 50, height: 46, }} />
         </TouchableOpacity>
-        <Image source={require(`./../../assets/icons/buswhite.png`)} style={{ width: 100, height: 89, marginBottom: 30 }} />
-        <Text style={styles.title}>{this.props.title.toUpperCase()}</Text>
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <Image source={require(`./../../assets/icons/buswhite.png`)} style={{ width: 100, height: 89, marginBottom: 30 }} />
+          <Text style={styles.title}>{this.props.title.toUpperCase()}</Text>
+        </View>
       </View>
     )
   }  
