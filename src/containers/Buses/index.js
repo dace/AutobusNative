@@ -24,24 +24,37 @@ class Buses extends Component {
         return Object.keys(bus).map(route => {
           const routeName = route;
           const destination = bus[route].destination;
-          const approachingBuses = bus[route].nextBuses.map(nextBus => {
+          const approachingBuses = bus[route].nextBuses.map((nextBus, index) => {
             return (
-              <View>
-                <Text>Distance Away: {nextBus.distanceAway}</Text>
-                <Text>Stops Away: {nextBus.stopsAway}</Text> 
+              <View style={styles.busWrapper}>
+                <View style={styles.busTitleWrapper}>
+                  <Text style={styles.titleText}>BUS #{index + 1}</Text>
+                </View>
+                <View style={styles.busDetailRowWrapper}>
+                  <View style={styles.busDetailSection}>
+                    <Text>{nextBus.distanceAway}</Text>
+                    <Text>Miles Away</Text>
+                  </View>
+                  <View style={styles.busDetailSection}>
+                    <Text>{nextBus.stopsAway}</Text> 
+                    <Text>Stops Away</Text>
+                  </View>
+                </View>
               </View>
             )
           });
           return (
             <View>
-              <Text>{routeName}</Text>
-              <Text>{destination}</Text>
+              <View style={styles.routeWrapper}>
+                <Text style={styles.routeName}>{routeName}</Text>
+                <Text style={styles.textStyle1}>FINAL DESTINATION: </Text>
+                <Text style={styles.textStyle2}>{destination.toUpperCase()}</Text>
+              </View>
               {approachingBuses}
             </View>
           )  
         });
       });
-
       return (
         <View>{liveBuses}</View>
       )
@@ -52,7 +65,9 @@ class Buses extends Component {
     return (
       <ScrollView style={styles.listWrapper}>
         <Header title="Next Buses" />
-        {this.renderBusDetails()}
+        <View style={styles.contentWrapper}>
+          {this.renderBusDetails()}
+        </View>
       </ScrollView>
     )
   }
@@ -67,6 +82,52 @@ const mapStateToProps = state => {
 const styles = StyleSheet.create({
   listWrapper: {
     marginTop: 60,
+    backgroundColor: '#F6F8F9',
+  },
+  contentWrapper: {
+    padding: 30,
+  },
+  routeWrapper: {
+    backgroundColor: '#ffffff',
+    padding: 30,
+    marginBottom: 30,
+  },
+  routeName: {
+    fontSize: 60,
+    marginBottom: 15,  
+  },
+  textStyle1: {
+    fontSize: 16,
+      color: '#000000',
+      marginBottom: 15,  
+  },
+  textStyle2: {
+    fontSize: 16,
+    color: '#919191',
+    marginBottom: 15,
+  },
+  titleText: {
+    color: '#ffffff',
+  },
+  busWrapper: {
+    marginBottom: 15,
+  },
+  busTitleWrapper: {
+    padding: 15,
+    backgroundColor: '#B3CBDE',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  busDetailRowWrapper: {
+    flexDirection: 'row',
+    backgroundColor: '#ffffff',
+    padding: 15,
+    marginBottom: 30,
+  },
+  busDetailSection: {
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: 15,
   },
 });
 
