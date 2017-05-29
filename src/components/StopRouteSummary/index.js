@@ -19,7 +19,7 @@ class StopRouteSummary extends Component {
         <TouchableOpacity onPress={() => this.handleScheduleLink(url)}>
           <Image 
             style={{ height: 45, width: 45, }}
-            source={require('./../../assets/icons/schedule.png')}
+            source={require('./../../assets/icons/schedulegray.png')}
           />
         </TouchableOpacity>
       )
