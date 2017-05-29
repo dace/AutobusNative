@@ -11,10 +11,12 @@ import {
   View, 
 } from 'react-native';
 import fetchBuses from './../../actions/fetch-buses';
+import setBusStyles from './../../actions/set-bus-styles';
 
 class StopIconRow extends Component {
-  handleSelectStop(code) {
-    this.props.fetchBuses(code)
+  handleSelectStop(code, routes) {
+    this.props.fetchBuses(code);
+    this.props.setBusStyles(routes);
     Actions.buses();
   }
 
@@ -42,7 +44,11 @@ class StopIconRow extends Component {
       <View style={styles.wrapper}>
         {this.renderGoogleMapsIcon(this.props.stopDetails.coordinates)}
         <TouchableOpacity 
-          onPress={() => this.handleSelectStop(this.props.stopDetails.stopCode)}
+          onPress={() => 
+            this.handleSelectStop(
+              this.props.stopDetails.stopCode,
+              this.props.stopDetails.routes,              
+          )}
         >
           <Image
             style={styles.icon} 
@@ -69,6 +75,7 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = dispatch => {
   return {
     fetchBuses: bindActionCreators(fetchBuses, dispatch),
+    setBusStyles: bindActionCreators(setBusStyles, dispatch),
   }
 };
 

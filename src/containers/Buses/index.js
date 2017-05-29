@@ -46,9 +46,17 @@ class Buses extends Component {
         <Text>Sorry, but there are no buses currently on this route.</Text>
       )
     } else {
+      const routeStyles = this.props.busStyles;
       const liveBuses = this.props.buses.busList.map(bus => {
         return Object.keys(bus).map(route => {
           const routeName = route;
+          const color = routeStyles.map(busRoute => {
+            if (busRoute.routeName === route) {
+              return busRoute.color;
+            } else {
+              return '000000';
+            }
+          });
           const destination = bus[route].destination;
           const approachingBuses = bus[route].nextBuses.map((nextBus, index) => {
             return (
@@ -64,24 +72,38 @@ class Buses extends Component {
                       style={{ height: 35, width: 40, marginBottom: 30 }} 
                     />
                     <Text style={styles.textBusDetails}>{nextBus.distanceAway}</Text>
-                    <Text style={styles.textBusDetails}>Miles Away</Text>
                   </View>
                   <View style={styles.busDetailSection}>
                     <Image 
                       source={require('./../../assets/icons/stop.png')} 
-                      style={{ height: 40, width: 40, marginBottom: 30 }} 
+                      style={{ height: 35, width: 35, marginBottom: 30 }} 
                     />
-                    <Text style={styles.textBusDetails}>{nextBus.stopsAway}</Text> 
-                    <Text style={styles.textBusDetails}>Stops Away</Text>
+                    <Text style={styles.textBusDetails}>{nextBus.stopsAway} Stops Away</Text> 
                   </View>
                 </View>
               </View>
             )
           });
+
+          const thisRouteName = {
+            fontSize: 60,
+            marginBottom: 15,
+            fontFamily: 'Gilroy-Bold',
+            color: `#${color}`,
+          };
+
+          const routeWrapper = {
+            backgroundColor: '#ffffff',
+            padding: 30,
+            marginBottom: 30,
+            borderLeftWidth: 6,
+            borderColor: `#${color}`,
+          };
+
           return (
             <View>
-              <View style={styles.routeWrapper}>
-                <Text style={styles.routeName}>
+              <View style={routeWrapper}>
+                <Text style={thisRouteName}>
                   {routeName}
                   <Image 
                     source={require('./../../assets/icons/bus.png')}
@@ -103,6 +125,7 @@ class Buses extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <ScrollView style={styles.listWrapper}>
         <BusesHeader title="Next Buses" img="buswhite" />
@@ -117,6 +140,7 @@ class Buses extends Component {
 const mapStateToProps = state => {
   return {
     buses: state.busesAtStop,
+    busStyles: state.busStyles.busStyles,    
   }
 };
 
@@ -126,16 +150,6 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     padding: 30,
-  },
-  routeWrapper: {
-    backgroundColor: '#ffffff',
-    padding: 30,
-    marginBottom: 30,
-  },
-  routeName: {
-    fontSize: 60,
-    marginBottom: 15,
-    fontFamily: 'Gilroy-Bold',
   },
   textStyle1: {
     fontSize: 16,
@@ -178,6 +192,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingTop: 15,
+    borderLeftWidth: 1,
+    borderColor: '#F6F9FA',
   },
 });
 

@@ -1,6 +1,6 @@
 import { SET_BUS_STYLES } from './../constants';
 
-export const setBusStyles = busRoutes => {
+const setBusStyles = busRoutes => {
   const routeStyles = busRoutes.map(bus => {
     return {
       routeName: bus.busName,
@@ -13,3 +13,5 @@ export const setBusStyles = busRoutes => {
     payload: routeStyles,
   }
 };
+
+export default setBusStyles;
