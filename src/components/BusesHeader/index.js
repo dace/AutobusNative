@@ -28,7 +28,7 @@ class BusesHeader extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: 320,
+    height: 300,
     backgroundColor: '#11446D',
     alignItems: 'center',
     justifyContent: 'center',
