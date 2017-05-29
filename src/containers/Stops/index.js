@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Actions } from 'react-native-router-flux';
 import PropTypes from 'prop-types';
-import Header from './../../components/Header';
+import StopsHeader from './../../components/StopsHeader';
 import StopNameHeader from './../../components/StopNameHeader';
 import StopCard from './../../components/StopCard';
 import StopCardList from './../../components/StopCardList';
@@ -41,7 +41,7 @@ class Stops extends Component {
     return (
       <ScrollView style={styles.wrapper}>
         <StatusBar barStyle="light-content" />
-        <Header title='Stops' img='http://' />
+        <StopsHeader title='Stops' img='http://' />
         <View style={styles.contentWrapper}>
           {this.props.fetchStops()}
           {this.renderStops()}

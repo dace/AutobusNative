@@ -8,7 +8,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import Header from './../../components/Header';
+import BusesHeader from './../../components/BusesHeader';
 
 class Buses extends Component {
   renderBusDetails() {
@@ -71,7 +71,7 @@ class Buses extends Component {
   render() {
     return (
       <ScrollView style={styles.listWrapper}>
-        <Header title="Next Buses" img="buswhite" />
+        <BusesHeader title="Next Buses" img="buswhite" />
         <View style={styles.contentWrapper}>
           {this.renderBusDetails()}
         </View>
