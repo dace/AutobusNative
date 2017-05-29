@@ -40,7 +40,6 @@ class StopIconRow extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <View style={styles.wrapper}>
         {this.renderGoogleMapsIcon(this.props.stopDetails.coordinates)}
