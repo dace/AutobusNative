@@ -17,26 +17,34 @@ class Buses extends Component {
       )
     } else if (this.props.buses.busList.length === 0) {
       return (
-        <Text>Sorry, but there are no buses currently on this route</Text>
+        <Text>Sorry, but there are no buses currently on this route.</Text>
       )
     } else {
-      // return Object.keys(routes).map(e => {
-      //   const routeName = routes[e];
-      //   const routeDestination = routes[e].destination;
-      //   const incomingBuses = routes[e].nextBuses.map(bus => {
-      //     return (
-      //       <View>
-      //         <Text>Distance Away: {bus.distanceAway}</Text>
-      //         <Text>Stops Away: {bus.stopsAway}</Text> 
-      //       </View>
-      //     )
-      //   });
-        return (
-          <View>
-            <Text>hi</Text>
-          </View>
-        )
-      // });
+      const liveBuses = this.props.buses.busList.map(bus => {
+        return Object.keys(bus).map(route => {
+          const routeName = route;
+          const destination = bus[route].destination;
+          const approachingBuses = bus[route].nextBuses.map(nextBus => {
+            return (
+              <View>
+                <Text>Distance Away: {nextBus.distanceAway}</Text>
+                <Text>Stops Away: {nextBus.stopsAway}</Text> 
+              </View>
+            )
+          });
+          return (
+            <View>
+              <Text>{routeName}</Text>
+              <Text>{destination}</Text>
+              {approachingBuses}
+            </View>
+          )  
+        });
+      });
+
+      return (
+        <View>{liveBuses}</View>
+      )
     }
   }
 
