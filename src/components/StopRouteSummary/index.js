@@ -18,7 +18,7 @@ class StopRouteSummary extends Component {
       return (
         <TouchableOpacity onPress={() => this.handleScheduleLink(url)}>
           <Image 
-            style={{ height: 60, width: 60, }}
+            style={{ height: 45, width: 45, }}
             source={require('./../../assets/icons/schedule.png')}
           />
         </TouchableOpacity>
@@ -61,10 +61,11 @@ class StopRouteSummary extends Component {
     }
 
     const routeName = {
-      fontSize: 60,
+      fontSize: 40,
       marginRight: 15,
       color: `#${this.props.route.color}`,
     };
+    
     return (
       <View style={wrapper} key={this.props.route.busName}>
         <View style={innerWrapper}>
