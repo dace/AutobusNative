@@ -16,11 +16,8 @@ class StopsHeader extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <TouchableOpacity onPress={() => this.refreshScene()}>
-          <Image source={require(`./../../assets/icons/arrowwhite.png`)} style={{ width: 50, height: 45 }} />
-        </TouchableOpacity>
-        <Image source={require(`./../../assets/icons/buswhite.png`)} style={{ width: 100, height: 89, marginBottom: 30 }} />
-        <Text style={styles.title}>{this.props.title.toUpperCase()}</Text>
+        <Image source={require(`./../../assets/icons/stopwhite.png`)} style={{ width: 100, height: 100, marginBottom: 30 }} />
+        <Text style={styles.title}>NEARBY STOPS</Text>
       </View>
     )
   }  
@@ -28,7 +25,7 @@ class StopsHeader extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: 320,
+    height: 300,
     backgroundColor: '#11446D',
     alignItems: 'center',
     justifyContent: 'center',
