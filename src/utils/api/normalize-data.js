@@ -8,8 +8,10 @@ export const normalizeStopData = stopList => {
     let newStopsObj = {
       stopCode: stop.code,
       crossStreets: normalizeStopName(stop.name),
-      latitude: stop.lat,
-      longitude: stop.lon,
+      coordinates: {
+        latitude: stop.lat,
+        longitude: stop.lon,
+      },
       direction: stop.direction,
       routes: [],
     };
