@@ -16,7 +16,7 @@ import fetchBuses from './../../actions/fetch-buses';
 class StopIconRow extends Component {
   handleSelectStop(code) {
     this.props.fetchBuses(code)
-    this.props.selectStop(code);
+    // this.props.selectStop(code);
     Actions.buses();
   }
 
