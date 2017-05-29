@@ -37,7 +37,7 @@ export const normalizeRoutesAndBuses = arrayOfBuses => {
     if (routes[bus.route]) {         
       routes[bus.route].nextBuses.push({
         stopsAway: bus.stopsAway,
-        distanceAway: bus.distanceAway,
+        distanceAway: bus.distanceAway.toLowerCase().replace(' miles away', ''),
         currentPosition: bus.currentPosition,
       });
     } else {
@@ -47,7 +47,7 @@ export const normalizeRoutesAndBuses = arrayOfBuses => {
       };
       routes[bus.route].nextBuses.push({
         stopsAway: bus.stopsAway,
-        distanceAway: bus.distanceAway,
+        distanceAway: bus.distanceAway.toLowerCase().replace(' miles away', ''),
         currentPosition: bus.currentPosition,
       });
       unifiedRoutesSingleStop.push(routes)
