@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import { bindActionCreators } from 'redux';
 import { 
   Image, 
+  Linking,
   StyleSheet, 
   Text,
   TouchableOpacity, 
@@ -19,13 +20,30 @@ class StopIconRow extends Component {
     Actions.buses();
   }
 
+  handleMapLink(url) {
+    Linking.openURL(url)
+      .catch(err => console.log('an error occurred.'));
+  }
+
+  renderGoogleMapsIcon(coords) {
+    const googleMapsUrl = `https://www.google.com/maps/place/${coords.latitude},${coords.longitude}`;
+    if (coords) {
+      return (
+        <TouchableOpacity onPress={() => this.handleMapLink(googleMapsUrl)}>
+          <Image
+            style={styles.icon} 
+            source={require('./../../assets/icons/circlemap.png')} 
+          />
+        </TouchableOpacity>
+      )
+    }
+  }
+
   render() {
+    console.log(this.props);
     return (
       <View style={styles.wrapper}>
-        <Image
-          style={styles.icon} 
-          source={require('./../../assets/icons/circlemap.png')} 
-        />
+        {this.renderGoogleMapsIcon(this.props.stopDetails.coordinates)}
         <TouchableOpacity 
           onPress={() => this.handleSelectStop(this.props.stopDetails.stopCode)}
         >
