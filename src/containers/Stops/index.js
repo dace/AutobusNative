@@ -17,7 +17,6 @@ import StopCard from './../../components/StopCard';
 import StopCardList from './../../components/StopCardList';
 import fetchCoordinates from './../../actions/fetch-coordinates';
 import fetchStops from './../../actions/fetch-stops';
-import selectStop from './../../actions/select-stop';
 import fetchBuses from './../../actions/fetch-buses';
 
 class Stops extends Component {
@@ -41,7 +40,7 @@ class Stops extends Component {
     return (
       <ScrollView style={styles.wrapper}>
         <StatusBar barStyle="light-content" />
-        <StopsHeader title='Stops' img='http://' />
+        <StopsHeader D/>
         <View style={styles.contentWrapper}>
           {this.props.fetchStops()}
           {this.renderStops()}
@@ -80,7 +79,6 @@ Stops.propTypes = {
   currentPosition: PropTypes.object,
   fetchCoordinates: PropTypes.func,
   fetchStops: PropTypes.func,
-  selectStop: PropTypes.func,
   fetchBuses: PropTypes.func,  
 };
 

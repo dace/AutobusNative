@@ -10,13 +10,11 @@ import {
   TouchableOpacity, 
   View, 
 } from 'react-native';
-import selectStop from './../../actions/select-stop';
 import fetchBuses from './../../actions/fetch-buses';
 
 class StopIconRow extends Component {
   handleSelectStop(code) {
     this.props.fetchBuses(code)
-    // this.props.selectStop(code);
     Actions.buses();
   }
 
@@ -70,7 +68,6 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = dispatch => {
   return {
-    selectStop: bindActionCreators(selectStop, dispatch),
     fetchBuses: bindActionCreators(fetchBuses, dispatch),
   }
 };
