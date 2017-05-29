@@ -6,7 +6,7 @@ import StopRoutesList from '../StopRoutesList';
 const StopCard = ({ details }) => {
   const wrapper = {
     padding: 0,
-    marginBottom: 100,
+    marginBottom: 50,
   };
 
   return (
