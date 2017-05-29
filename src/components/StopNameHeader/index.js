@@ -15,6 +15,7 @@ const StopNameHeader = ({ details, name }) => {
   const stopName = {
     fontSize: 25,
     color: '#ffffff',
+    fontFamily: 'Gilroy-Bold',
   }
 
   return (

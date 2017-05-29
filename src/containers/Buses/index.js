@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
+  Image,
   ScrollView,
   Text,
   StyleSheet,
@@ -46,7 +47,13 @@ class Buses extends Component {
           return (
             <View>
               <View style={styles.routeWrapper}>
-                <Text style={styles.routeName}>{routeName}</Text>
+                <Text style={styles.routeName}>
+                  {routeName}
+                  <Image 
+                    source={require('./../../assets/icons/bus.png')}
+                    style={{ height: 45, width: 50, marginLeft: 15, }}
+                  />
+                </Text>
                 <Text style={styles.textStyle1}>FINAL DESTINATION: </Text>
                 <Text style={styles.textStyle2}>{destination.toUpperCase()}</Text>
               </View>
@@ -64,7 +71,7 @@ class Buses extends Component {
   render() {
     return (
       <ScrollView style={styles.listWrapper}>
-        <Header title="Next Buses" />
+        <Header title="Next Buses" img="buswhite" />
         <View style={styles.contentWrapper}>
           {this.renderBusDetails()}
         </View>
@@ -81,7 +88,6 @@ const mapStateToProps = state => {
 
 const styles = StyleSheet.create({
   listWrapper: {
-    marginTop: 60,
     backgroundColor: '#F6F8F9',
   },
   contentWrapper: {
@@ -94,17 +100,20 @@ const styles = StyleSheet.create({
   },
   routeName: {
     fontSize: 60,
-    marginBottom: 15,  
+    marginBottom: 15,
+    fontFamily: 'Gilroy-Bold',
   },
   textStyle1: {
     fontSize: 16,
-      color: '#000000',
-      marginBottom: 15,  
+    color: '#000000',
+    marginBottom: 15,
+    fontFamily: 'Avenir-Book',
   },
   textStyle2: {
     fontSize: 16,
     color: '#919191',
     marginBottom: 15,
+    fontFamily: 'Avenir-Book',
   },
   titleText: {
     color: '#ffffff',

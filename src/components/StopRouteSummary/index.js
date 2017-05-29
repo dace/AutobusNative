@@ -36,12 +36,14 @@ class StopRouteSummary extends Component {
     const primaryText = {
       fontSize: 16,
       marginBottom: 4,
+      fontFamily: 'Avenir-Book',
     }
 
     const secondaryText = {
       fontSize: 16,
       color: '#919191',
       marginBottom: 28,
+      fontFamily: 'Avenir-Book',      
     }
 
     const innerWrapper = {
@@ -64,6 +66,7 @@ class StopRouteSummary extends Component {
       fontSize: 40,
       marginRight: 15,
       color: `#${this.props.route.color}`,
+      fontFamily: 'Gilroy-Bold',
     };
     
     return (

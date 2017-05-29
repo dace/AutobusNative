@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+  StatusBar,
   TouchableHighlight,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -39,6 +40,7 @@ class Stops extends Component {
   render() {
     return (
       <ScrollView style={styles.wrapper}>
+        <StatusBar barStyle="light-content" />
         <Header title='Stops' img='http://' />
         <View style={styles.contentWrapper}>
           {this.props.fetchStops()}
@@ -66,7 +68,6 @@ const mapDispatchToProps = dispatch => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 60,
     backgroundColor: '#F6F9FA',
   },
   contentWrapper: {

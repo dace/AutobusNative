@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Image,
   View,
   Text, 
   StyleSheet
@@ -8,6 +9,7 @@ import {
 const Header = ({ title, img }) => {
   return (
     <View style={styles.wrapper}>
+      <Image source={require(`./../../assets/icons/buswhite.png`)} style={{ width: 100, height: 89, marginBottom: 30 }} />
       <Text style={styles.title}>{title.toUpperCase()}</Text>
     </View>
   )
@@ -27,6 +29,7 @@ const styles = StyleSheet.create({
   title: {
     color: '#ffffff',
     fontSize: 26,
+    fontFamily: 'Gilroy-Bold',
   }
 });
 
