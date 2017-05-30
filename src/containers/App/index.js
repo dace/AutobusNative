@@ -10,8 +10,6 @@ import thunk from 'redux-thunk';
 import devToolsEnhancer from 'remote-redux-devtools';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
   View
 } from 'react-native';
 import {
