@@ -14,4 +14,12 @@ Autobus makes use of two public APIs provided by the NYC MTA.
 
 # Locating nearby stops
 
+![google maps screen](./docs/assets/images/googlemaps.png)
+
 Autobus uses your current GPS latitude and longitude coordinates to make a call to the **One Bus Away** API. The API responds with a number of stops within a set radius of your current location. The response includes a number of routes that serve that stop.  
+
+# Linking to Route Schedule
+
+![schedule screen](./docs/assets/images/schedule.png)
+
+For every route, Autobus provides a link to a PDF of the official MTA schedule of that route. This link opens in the user's default browser.
