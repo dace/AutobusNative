@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import {
   Image,
   ScrollView,
-  Text,
+  StatusBar,
   StyleSheet,
+  Text,
   View,
 } from 'react-native';
 import BusesHeader from './../../components/BusesHeader';
+import Loading from './../../components/Loading';
 
 class Buses extends Component {
   renderStatusIcon(bus) {
@@ -39,7 +41,7 @@ class Buses extends Component {
   renderBusDetails() {
     if (!this.props.buses) {
       return (
-        <Text>Loading Bus Details...</Text>
+        <Loading text="Loading Bus Details..." />
       )
     } else if (this.props.buses.busList.length === 0) {
       return (
@@ -125,14 +127,18 @@ class Buses extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
-      <ScrollView style={styles.listWrapper}>
-        <BusesHeader title="Next Buses" img="buswhite" />
-        <View style={styles.contentWrapper}>
-          {this.renderBusDetails()}
+      <View>
+        <View style={{ backgroundColor: '#11446D', height: 22 }}>
+          <StatusBar barStyle="light-content" />
         </View>
-      </ScrollView>
+        <ScrollView style={styles.listWrapper}>
+          <BusesHeader title="Next Buses" img="buswhite" />
+          <View style={styles.contentWrapper}>
+            {this.renderBusDetails()}
+          </View>
+        </ScrollView>
+      </View>
     )
   }
 };
@@ -171,6 +177,8 @@ const styles = StyleSheet.create({
   titleText: {
     color: '#ffffff',
     marginLeft: 15,
+    fontSize: 16,    
+    fontFamily: 'Gilroy-Bold',    
   },
   busWrapper: {
     marginBottom: 15,

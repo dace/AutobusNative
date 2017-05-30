@@ -15,6 +15,7 @@ import StopsHeader from './../../components/StopsHeader';
 import StopNameHeader from './../../components/StopNameHeader';
 import StopCard from './../../components/StopCard';
 import StopCardList from './../../components/StopCardList';
+import CustomStatusBar from './../../components/CustomStatusBar';
 import fetchCoordinates from './../../actions/fetch-coordinates';
 import fetchStops from './../../actions/fetch-stops';
 import fetchBuses from './../../actions/fetch-buses';
@@ -38,14 +39,18 @@ class Stops extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.wrapper}>
-        <StatusBar barStyle="light-content" />
-        <StopsHeader D/>
-        <View style={styles.contentWrapper}>
-          {this.props.fetchStops()}
-          {this.renderStops()}
+      <View>
+        <View style={{ backgroundColor: '#11446D', height: 22 }}>
+          <StatusBar barStyle="light-content" />
         </View>
-      </ScrollView>
+        <ScrollView style={styles.wrapper}>
+          <StopsHeader/>
+          <View style={styles.contentWrapper}>
+            {this.props.fetchStops()}
+            {this.renderStops()}
+          </View>
+        </ScrollView>
+      </View>
     )
   }
 };
