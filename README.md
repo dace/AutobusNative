@@ -14,4 +14,4 @@ Autobus makes use of two public APIs provided by the NYC MTA.
 
 # Locating nearby stops
 
-Autobus uses your current GPS latitude and longitude coordinates to make a call to the **One Bus Away API**
+Autobus uses your current GPS latitude and longitude coordinates to make a call to the **One Bus Away** API. The API responds with a number of stops within a set radius of your current location. The response includes a number of routes that serve that stop.  
