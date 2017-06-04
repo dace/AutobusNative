@@ -8,7 +8,7 @@ Autobus is an iOS app built on [React Native](https://facebook.github.io/react-n
 
 ## Finding Nearby Stops
  
-Autobus automatically uses your phone’s geolocation (once you grant permission through the prompt when the app launches) to pinpoint your current latitudinal and longitudinal coordinates. The app then bundles those coordinates with a pre-set radius and sends a request to the [One Bus Away API](http://bustime.mta.info/wiki/Developers/OneBusAwayRESTfulAPI). The API responds with a list of nearby stops. Each stop returns with details about that stop, such as: cross streets, coordinates (which the app uses to display the stop on Google maps), a list of bus routes being serviced, a url to a PDF of each route’s official schedule (which the app links to via Safari) and a stop code. 
+Autobus automatically uses your phone’s geolocation (once you grant permission through the prompt when the app launches) to pinpoint your current latitudinal and longitudinal coordinates. The app then bundles those coordinates with a pre-set radius and sends a request to the [One Bus Away API](http://bustime.mta.info/wiki/Developers/OneBusAwayRESTfulAPI). The API responds with a list of nearby stops. Each stop returns with details about that stop, such as: cross streets, coordinates (which the app uses to display the stop on Google maps), a list of bus routes being serviced and a stop code. 
  
 ## Finding Next Buses
  
