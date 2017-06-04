@@ -1,6 +1,6 @@
 # Autobus
 
-![autobus screens](./docs/assets/images/screens_01.jpg)
+![autobus screens](./docs/assets/images/screens_all.jpg)
 
 ## How Autobus Works
  
