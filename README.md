@@ -18,9 +18,11 @@ Autobus automatically uses your phone’s geolocation (once you grant permission
  
 The stop code provided by the response data from the One Bus API is then used in a request to the [Siri Standard API](http://bustime.mta.info/wiki/Developers/SIRIIntro) - a separate API provided by the MTA, that tracks current, live bus data. The response from the Siri API provides a list of all approaching buses heading to the stop (as provided via a stop code in the request) as well as details for each of those buses. These bus details include: bus number, current coordinates at the time of the response, distance from the stop and stops away from the provided stop.
 
-
 ## APIs 
 
 [One Bus Away API](http://bustime.mta.info/wiki/Developers/OneBusAwayRESTfulAPI) - utilized with the mobile device's GPS to pull in a number of nearby bus stops.
 
 [SIRI Standard API](http://bustime.mta.info/wiki/Developers/SIRIIntro) - provides real-time data for stop monitoring (what bus routes are served and real-time updates on approaching buses).
+
+# Demo video
+[Autobus - React Native iOS Demo](https://vimeo.com/221551562)
